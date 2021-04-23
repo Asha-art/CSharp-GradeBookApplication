@@ -48,7 +48,7 @@ namespace GradeBook.UserInterfaces
         public static void LoadCommand(string command)
         {
             var parts = command.Split(' ');
-            if (parts.Length != 2)
+            if (parts.Length != 3)
             {
                 Console.WriteLine("Command not valid, Load requires a name.");
                 return;
@@ -67,10 +67,10 @@ namespace GradeBook.UserInterfaces
             }
             else
             {
-                Console.WriteLine(type +" is not a supported type of gradebook, please try again");
+                Console.WriteLine(type +" is not a supported type of gradebook, please try again.");
             }
-            return;
-            //var gradeBook = BaseGradeBook.Load(name);
+            
+            var gradeBook = BaseGradeBook.Load(name);
 
             if (gradeBook == null)
                 return;
