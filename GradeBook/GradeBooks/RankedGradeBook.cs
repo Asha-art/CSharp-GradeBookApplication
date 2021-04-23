@@ -38,11 +38,11 @@ namespace GradeBook.GradeBooks
 
                 if (orderGrades[topGrade] <= averageGrade)
                 return 'A';
-            else if (orderGrades[topGrade] * 2 <= averageGrade)
+            else if (orderGrades[topGrade-1] * 2 <= averageGrade)
                 return 'B';
-            else if (orderGrades[topGrade] * 3 <= averageGrade)
+            else if (orderGrades[topGrade-1] * 3 <= averageGrade)
                 return 'C';
-            else if (orderGrades[topGrade] * 4 <= averageGrade)
+            else if (orderGrades[topGrade-1] * 4 <= averageGrade)
                 return 'D';
             else
                 return 'F';
