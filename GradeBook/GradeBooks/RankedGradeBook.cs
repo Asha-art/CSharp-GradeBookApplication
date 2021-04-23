@@ -36,13 +36,13 @@ namespace GradeBook.GradeBooks
 
                 // figure out where input grade fit in which grade , every x student with higher grades than input grade knocks the letter grade down until F
 
-                if (orderGrades[topGrade-1] <= averageGrade)
+                if (averageGrade >= orderGrades[topGrade-1])
                 return 'A';
-            else if (orderGrades[topGrade-1] * 2 <= averageGrade)
+            else if (averageGrade >= orderGrades[(topGrade * 2) -1] )
                 return 'B';
-            else if (orderGrades[topGrade-1] * 3 <= averageGrade)
+            else if (averageGrade >= orderGrades[(topGrade * 3) - 1])
                 return 'C';
-            else if (orderGrades[topGrade-1] * 4 <= averageGrade)
+            else if (averageGrade >= orderGrades[(topGrade * 4) - 1])
                 return 'D';
             else
                 return 'F';
