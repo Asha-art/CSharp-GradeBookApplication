@@ -36,25 +36,12 @@ namespace GradeBook.UserInterfaces
             var parts = command.Split(' ');
             if (parts.Length != 3)
             {
-                Console.WriteLine("Command not valid, Create requires a name and type of gradebook");
+                Console.WriteLine("Command not valid, Create requires a name and type of gradebook.");
               
             }
             var name = parts[1];
-            BaseGradeBook gradeBook = new BaseGradeBook(name);
-            Console.WriteLine("Created gradebook {0}.", name);
-            GradeBookUserInterface.CommandLoop(gradeBook);
-        }
 
-        public static void LoadCommand(string command)
-        {
-            var parts = command.Split(' ');
-            if (parts.Length != 3)
-            {
-                Console.WriteLine("Command not valid, Load requires a name.");
-                return;
-            }
-            var name = parts[1];
-            var type = parts[2];
+            var type = parts[2].ToLower();
             BaseGradeBook gradeBook;
 
             if (type == "standard")
@@ -67,10 +54,25 @@ namespace GradeBook.UserInterfaces
             }
             else
             {
-                Console.WriteLine(type +" is not a supported type of gradebook, please try again.");
+                Console.WriteLine( type + " is not a supported type of gradebook, please try again.");
             }
-            
-            var gradeBook = BaseGradeBook.Load(name);
+
+            gradeBook = new BaseGradeBook(name);
+            Console.WriteLine("Created gradebook {0}.", name);
+            GradeBookUserInterface.CommandLoop(gradeBook);
+        }
+
+        public static void LoadCommand(string command)
+        {
+            var parts = command.Split(' ');
+            if (parts.Length != 2)
+            {
+                Console.WriteLine("Command not valid, Load requires a name.");
+                return;
+            }
+            var name = parts[1];
+           
+            var gradeBook = new BaseGradeBook(name);
 
             if (gradeBook == null)
                 return;
