@@ -3,7 +3,7 @@ using System;
 
 namespace GradeBook.UserInterfaces
 {
-    public static class StartingUserInterface
+    public static class StartingUserInterface 
     {
         public static bool Quit = false;
         public static void CommandLoop()
@@ -42,7 +42,7 @@ namespace GradeBook.UserInterfaces
             var name = parts[1];
 
             var type = parts[2];
-            BaseGradeBook gradeBook = new BaseGradeBook(name);
+            BaseGradeBook gradeBook;//= new BaseGradeBook(name);
 
             if (type == "standard")
 
@@ -71,10 +71,10 @@ namespace GradeBook.UserInterfaces
                 return;
             }
             var name = parts[1];
-           
-            var gradeBook = new BaseGradeBook(name);
 
-            if (gradeBook == null)
+            BaseGradeBook gradeBook;// = new BaseGradeBook(name);
+           
+          //  if (gradeBook == null)
                 return;
 
             GradeBookUserInterface.CommandLoop(gradeBook);
