@@ -20,6 +20,7 @@ namespace GradeBook.GradeBooks
         {
             Name = name;
             IsWeighted = isWeighted ;
+
             Students = new List<Student>();
         }
 
